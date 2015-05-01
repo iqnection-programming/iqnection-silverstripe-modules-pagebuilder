@@ -1,0 +1,3 @@
+SiteConfig:
+  extensions:
+    - SiteConfig_PageBuilder
