@@ -7,21 +7,24 @@
 		);
 	
 		public function updateCMSFields(FieldList $fields) {
-			$fields->addFieldToTab("Root.PageBuilder", new LiteralField("Instructions", "
-				<p class=\"helpText\">
-					Enter your list of initial pages and their page types.  If you do not include a page type, it will default to \"Page\".<br />
-					<br />
-					To make a child page, begin the line with a dot \".\" for each level.  For example, second level pages would look like this:<br />
-					<br />
-					About Us<br />.Our Services<br />.Our History
-					<br />
-					<br />
-					To set the page type, use a bar \"|\" between the page name and page type, like this:<br />
-					Home|HomePage<br /><br />
-					Existing pages at the same level will not be duplicated, if the page exists at the same level, it will not be changed, but children may be created
-				</p>
-			"));
-			$fields->addFieldToTab("Root.PageBuilder", new TextAreaField("PageStructure", "Page Structure"));
+			if (Permission::check('ADMIN'))
+			{
+				$fields->addFieldToTab("Root.PageBuilder", new LiteralField("Instructions", "
+					<p class=\"helpText\">
+						Enter your list of initial pages and their page types.  If you do not include a page type, it will default to \"Page\".<br />
+						<br />
+						To make a child page, begin the line with a dot \".\" for each level.  For example, second level pages would look like this:<br />
+						<br />
+						About Us<br />.Our Services<br />.Our History
+						<br />
+						<br />
+						To set the page type, use a bar \"|\" between the page name and page type, like this:<br />
+						Home|HomePage<br /><br />
+						Existing pages at the same level will not be duplicated, if the page exists at the same level, it will not be changed, but children may be created
+					</p>
+				"));
+				$fields->addFieldToTab("Root.PageBuilder", new TextAreaField("PageStructure", "Page Structure"));
+			}
 		}
 		
 		public function onBeforeWrite()
