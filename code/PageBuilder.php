@@ -13,9 +13,9 @@
 					<p class=\"helpText\">
 						Enter your list of initial pages and their page types.  If you do not include a page type, it will default to \"Page\".<br />
 						<br />
-						To make a child page, begin the line with a dot \".\" for each level.  For example, second level pages would look like this:<br />
+						To make a child page, begin the line with a symbol \"~\" for each level.  For example, second level pages would look like this:<br />
 						<br />
-						About Us<br />.Our Services<br />.Our History
+						About Us<br />~Our Services<br />~Our History
 						<br />
 						<br />
 						To set the page type, use a bar \"|\" between the page name and page type, like this:<br />
@@ -52,7 +52,7 @@
 						$page_name = trim($page);
 						
 					$level = 1;
-					while (preg_match("/^\./", $page_name))
+					while (preg_match("/^\~/", $page_name))
 					{
 						$page_name = substr($page_name, 1);
 						$level++;
@@ -85,7 +85,7 @@
 							$new_page->ParentID = $parentID;
 						}
 						$new_page->write();
-						$new_page->publish('Stage', 'Live');
+						$new_page->doPublish();
 						$new_page->flushCache();
 					}
 					else
