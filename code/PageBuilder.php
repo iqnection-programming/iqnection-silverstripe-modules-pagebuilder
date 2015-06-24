@@ -66,7 +66,7 @@
 					}
 
 					// see if the page exists
-					if (!$new_page = DataObject::get_one('SiteTree',"Title = '".$page_name."' AND ParentID = ".$parentID))
+					if (!$new_page = DataObject::get_one('SiteTree',"Title = '".Convert::raw2sql($page_name)."' AND ParentID = ".$parentID))
 					{
 						if ($page_class && $page_class != "Page" && class_exists($page_class))
 						{
@@ -85,6 +85,7 @@
 							$new_page->ParentID = $parentID;
 						}
 						$new_page->write();
+						$new_page->writeToStage('Stage');
 						$new_page->doPublish();
 						$new_page->flushCache();
 					}

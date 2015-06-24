@@ -2,6 +2,10 @@
 # Change Log
 
 
+## [1.0.2]
+- Fixed bug when auto publishing pages
+
+
 ## [1.0.1]
 - Change deliminator character for nested pages
 
