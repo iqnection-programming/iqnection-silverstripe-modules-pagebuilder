@@ -92,10 +92,23 @@
 					else
 					{
 						// update the position if the page already exists
+						if (class_exists($page_class) && $new_page->ClassName != $page_class) $new_page->ClassName = $page_class;
 						$new_page->Sort = $level_sequence[$level];
 						$new_page->write();
+						$new_page->writeToStage('Stage');
+						$new_page->doPublish();
+						$new_page->flushCache();
 					}
 					$curr_level_page[$level] = $new_page;
+				}
+				// update sequence on error pages
+				foreach(DataObject::get('ErrorPage') as $error_page)
+				{
+					$error_page->Sort = 9999;
+					$error_page->write();
+					$error_page->writeToStage('Stage');
+					$error_page->doPublish();
+					$error_page->flushCache();
 				}
 			}
 			

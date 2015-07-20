@@ -2,6 +2,12 @@
 # Change Log
 
 
+## [1.0.3]
+- Now Re-assigns page class if different
+- Fixed bug: modified pages weren't being published correctly
+- Added code to re-order Error pages to the bottom of the page tree
+
+
 ## [1.0.2]
 - Fixed bug when auto publishing pages
 
