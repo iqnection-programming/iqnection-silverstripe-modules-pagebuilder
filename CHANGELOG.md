@@ -2,6 +2,10 @@
 # Change Log
 
 
+## [1.0.4]
+- Moved to Developer Tabset in site settings
+
+
 ## [1.0.3]
 - Now Re-assigns page class if different
 - Fixed bug: modified pages weren't being published correctly
