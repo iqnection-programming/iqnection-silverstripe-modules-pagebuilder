@@ -24,7 +24,8 @@ class SiteConfig_PageBuilder extends DataExtension
 			</p>
 		"));
 		$fields->addFieldToTab("Root.Developer.PageBuilder", CodeEditorField::create("PageStructure", "Page Structure")
-			->addExtraClass('stacked'));
+			->addExtraClass('stacked')
+			->setRows(50));
 	}
 	
 	public function onBeforeWrite()
