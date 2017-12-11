@@ -1,6 +1,6 @@
 {
 	"name": "iqnection-modules/pagebuilder",
-	"description": "SilverStripe 3 Page Builder Module",
+	"description": "SilverStripe Page Builder Module",
 	"type": "silverstripe-module",
 	"keywords": ["iqnection","modules"],
 	"authors": [
@@ -10,7 +10,7 @@
 		}
 	],
 	"require": {
-		"silverstripe/framework": ">=3.0"
+		"silverstripe/framework": "4.*"
 	},
 	"extra": {
 		"installer-name": "iq-pagebuilder"

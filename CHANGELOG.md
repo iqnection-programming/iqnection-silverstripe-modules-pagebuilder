@@ -1,6 +1,9 @@
-## Package: iqnection-silverstripe-3-pagebuilder
+## Package: iqnection-silverstripe-pagebuilder
 # Change Log
 
+
+## [2.0.0]
+- updated for SilverStripe 4
 
 ## [1.0.4]
 - Moved to Developer Tabset in site settings
