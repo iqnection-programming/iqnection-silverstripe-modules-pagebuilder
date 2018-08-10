@@ -1,3 +1,6 @@
+---
+Name: iqpagebuilder
+---
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - IqPageBuilderSiteConfig
+    - IQnection\PageBuilder\SiteConfigExtension

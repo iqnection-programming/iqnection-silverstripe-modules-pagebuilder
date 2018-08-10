@@ -3,6 +3,7 @@
 	"description": "SilverStripe Page Builder Module",
 	"type": "silverstripe-module",
 	"keywords": ["iqnection","modules"],
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "IQnection",
@@ -12,7 +13,9 @@
 	"require": {
 		"silverstripe/framework": "4.*"
 	},
-	"extra": {
-		"installer-name": "iq-pagebuilder"
+	"autoload": {
+		"psr-4": {
+			"IQnection\\PageBuilder\\": "app/src/"
+		}
 	}
 }

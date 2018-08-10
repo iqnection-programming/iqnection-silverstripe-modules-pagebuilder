@@ -1,11 +1,13 @@
 <?php
 
+namespace IQnection\PageBuilder;
+
 use SilverStripe\ORM;
 use SilverStripe\Forms;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core;
 
-class IqPageBuilderSiteConfig extends ORM\DataExtension 
+class SiteConfigExtension extends ORM\DataExtension 
 {
 	private static $db = array(
 		'PageStructure' => 'Text'

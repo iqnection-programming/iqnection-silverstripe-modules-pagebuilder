@@ -2,6 +2,9 @@
 # Change Log
 
 
+## [2.1.0]
+- Updated for SilverStripe 4.1
+
 ## [2.0.0]
 - updated for SilverStripe 4
 
