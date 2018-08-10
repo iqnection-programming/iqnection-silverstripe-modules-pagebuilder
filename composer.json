@@ -1,7 +1,7 @@
 {
 	"name": "iqnection-modules/pagebuilder",
 	"description": "SilverStripe Page Builder Module",
-	"type": "silverstripe-module",
+	"type": "silverstripe-vendormodule",
 	"keywords": ["iqnection","modules"],
 	"license": "MIT",
 	"authors": [
