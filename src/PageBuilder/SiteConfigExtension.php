@@ -30,10 +30,25 @@ class SiteConfigExtension extends ORM\DataExtension
 				Existing pages at the same level will not be duplicated, if the page exists at the same level, it will not be changed, but children may be created
 			</p>
 		"));
-
+		$fields->addFieldToTab('Root.Developer.PageBuilder', Forms\ToggleCompositeField::create('page-type-classes-holder','Page Types',Forms\LiteralField::create('page-type-classes','<div style="padding:20px;font-size:20px;line-height:1.5;"><pre>'.implode("\n",$this->getAvailablePageTypes()).'</pre></div>')) );
 		$fields->addFieldToTab("Root.Developer.PageBuilder", Forms\TextareaField::create("PageStructure", "Page Structure")
 			->addExtraClass('stacked monotype')
 			->setRows(50));
+	}
+	
+	protected function getAvailablePageTypes()
+	{
+		$pageTypes = [];
+		foreach(Core\ClassInfo::getValidSubClasses(\SilverStripe\CMS\Model\SiteTree::class) as $pageTypeClass)
+		{
+			if ($pageTypeClass != \SilverStripe\CMS\Model\SiteTree::class)
+			{
+				$pageTypes[$pageTypeClass] = Core\ClassInfo::shortName($pageTypeClass).' - '.$pageTypeClass;
+			}
+		}
+		unset($pageTypes['\IQnection\FormPage\FormPage']);
+		sort($pageTypes);
+		return $pageTypes;
 	}
 	
 	public function onBeforeWrite()
